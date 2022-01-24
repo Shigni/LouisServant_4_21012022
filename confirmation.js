@@ -7,7 +7,6 @@ function displayModalSubmit() {
     modalbg.style.display = 'none';
     modalSubmit[0].style.display = 'block';
 }
-
 // Close confirmation 
 function closeSubmit() {
     modalSubmit[0].style.display = 'none';
@@ -17,7 +16,6 @@ function closeSubmit() {
     birthdate.style.border = 'none';
     quantity.style.border = 'none';
 }
-
 // Event close confirmation
 closeModalSubmit[0].addEventListener('click', closeSubmit);
 closeBtnConfirmation.addEventListener('click', closeSubmit);
