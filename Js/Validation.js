@@ -9,7 +9,6 @@ const checkbox1 = document.getElementById('checkbox1');
 const input = document.getElementsByClassName('text-control');
 const form = document.getElementById('form');
 const regex = /^[a-zA-ZÀ-ÖØ-öø-ÿ]+$/;
-
 // Check names
 function checkFirstName() {
     if (firstName.value.trim().length < 2 || first.value.trim() === '' || !firstName.value.match(regex)) {
@@ -44,7 +43,8 @@ function checkEmail() {
     return false;
 }
 // Check birthdate
-function checkBirth() {
+
+function checkBirth() {   
     if (birthdate.value.trim().length !== 10) {
         birthdate.parentElement.setAttribute('data-error-visible', 'true');
         birthdate.style.border = '2px solid #e54858';
@@ -89,13 +89,13 @@ function checkCheckBox() {
 function Validation(element, method, event) {
     element.addEventListener(event, method);
 }
-Validation(firstName, checkFirstName, 'focusout');
-Validation(lastName, checkLastName, 'focusout');
-Validation(email, checkEmail, 'focusout');
-Validation(birthdate, checkBirth, 'focusout');
-Validation(quantity, checkTournaments, 'focusout');
-Validation(allLocations, checkLocations, 'change');
-Validation(checkbox1, checkCheckBox, 'change');
+Validation(firstName, checkFirstName,  'submit');
+Validation(lastName, checkLastName,  'submit');
+Validation(email, checkEmail,'submit');
+Validation(birthdate, checkBirth,  'submit');
+Validation(quantity, checkTournaments, 'submit');
+Validation(allLocations, checkLocations, 'submit');
+Validation(checkbox1, checkCheckBox, 'submit');
 
 function forAllValidation() {
     checkFirstName()
@@ -126,6 +126,7 @@ form.addEventListener('submit', function (e) {
     if (formValidation() == true) {
         displayModalSubmit();
         document.querySelector('form').reset();
+        
     } else {
         forAllValidation();
     }
